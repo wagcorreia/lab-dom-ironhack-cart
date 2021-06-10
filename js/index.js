@@ -1,31 +1,51 @@
 // ITERATION 1
 
 function updateSubtotal(product) {
-  console.log('Calculating subtotal, yey!');
-
-  //... your code goes here
+  
+  const price = Number(product.querySelector('.price span').innerText);
+  const quantity = Number(product.querySelector('.quantity input').value);
+  const subtotal = price * quantity;
+  
+  product.querySelector('.subtotal span').innerText = subtotal.toFixed(2);
+  return subtotal;
 }
 
 function calculateAll() {
   // code in the following two lines is added just for testing purposes.
   // it runs when only iteration 1 is completed. at later point, it can be removed.
-  const singleProduct = document.querySelector('.product');
-  updateSubtotal(singleProduct);
+  //const singleProduct = document.querySelector('.product');
+  //updateSubtotal(singleProduct);
   // end of test
 
   // ITERATION 2
-  //... your code goes here
+  const totalPrice = document.querySelector('#total-value span');
+  const allProducts = document.querySelectorAll('.product'); 
+  const allSubtotal = [];
 
-  // ITERATION 3
-  //... your code goes here
+  allProducts.forEach((eachProduct) => {
+    updateSubtotal(eachProduct);
+    allSubtotal.push(updateSubtotal(eachProduct));
+  });
+
+  const finalPrice = allSubtotal.reduce(
+    (currentTotal, currentSubtotal) => currentTotal + currentSubtotal
+  );
+
+  totalPrice.innerText = finalPrice;
 }
 
 // ITERATION 4
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  console.log('The target in remove is:', target);
-  //... your code goes here
+ //console.log('The target in remove is:', target);
+  //const parent = target.parentNode;
+ // const grandParent = parent.parentNode;
+ // const greatGrandParent = grandParent.parentNode;
+
+ // console.log(grandParent);
+
+ // greatGrandParent.removeChild(grandParent);
 }
 
 // ITERATION 5
