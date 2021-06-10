@@ -38,7 +38,7 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
- //console.log('The target in remove is:', target);
+ console.log('The target in remove is:', target);
   //const parent = target.parentNode;
  // const grandParent = parent.parentNode;
  // const greatGrandParent = grandParent.parentNode;
@@ -57,6 +57,13 @@ function createProduct() {
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
+  
+  const removeBtns = document.querySelectorAll('.btn-remove'); 
+
+  removeBtns.forEach((oBotao) => oBotao.addEventListener('click', removeProduct)
+  );
+
+
 
   //... your code goes here
 });
