@@ -31,7 +31,7 @@ function calculateAll() {
     (currentTotal, currentSubtotal) => currentTotal + currentSubtotal
   );
 
-  totalPrice.innerText = finalPrice;
+  totalPrice.innerText = finalPrice.toFixed(2);
 }
 
 // ITERATION 4
